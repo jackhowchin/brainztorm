@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://btvtj38loqx2d"]
+
+[ext_resource type="Texture2D" uid="uid://dbvvdyg7v2v5w" path="res://experiments/layers/jungle_test_texture.png" id="1_ypmt8"]
+[ext_resource type="Script" uid="uid://coymq5v6k3ger" path="res://experiments/layers/SpinSphere.gd" id="2_et3o1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_et3o1"]
+albedo_texture = ExtResource("1_ypmt8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_a8024"]
+lightmap_size_hint = Vector2i(159, 80)
+material = SubResource("StandardMaterial3D_et3o1")
+flip_faces = true
+radius = 5.0
+height = 10.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_a8024")
+script = ExtResource("2_et3o1")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
