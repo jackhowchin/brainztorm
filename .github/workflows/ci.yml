@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        lfs: true
+    - name: Show tree
+      run: tree -L 2 || ls -R | head -20
+    - name: ShellCheck
+      run: |
+        brew install shellcheck
+        find . -type f -name "*.sh" | xargs -r shellcheck
